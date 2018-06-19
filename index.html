@@ -35,10 +35,11 @@
       "esri/WebMap",
       "esri/views/MapView",
       "esri/widgets/LayerList",
+      "esri/widgets/Search",
        "esri/widgets/Locate",
       "dojo/domReady!"
     ], function(
-      WebMap, MapView, LayerList, Locate
+      WebMap, MapView, LayerList, Search, Locate
     ) {
 
       const map = new WebMap({
@@ -66,10 +67,17 @@
         }
       });
       view.ui.add(layerList, "top-right");
+     var searchWidget = new Search({
+        view: view
+      });
             var locateBtn = new Locate({
         view: view
       });
 
+      // Add the search widget to the top right corner of the view
+      view.ui.add(searchWidget, {
+        position: "top-right"
+      });
       // Add the locate widget to the top left corner of the view
       view.ui.add(locateBtn, {
         position: "top-left"
