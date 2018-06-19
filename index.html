@@ -35,9 +35,10 @@
       "esri/WebMap",
       "esri/views/MapView",
       "esri/widgets/LayerList",
+       "esri/widgets/Locate",
       "dojo/domReady!"
     ], function(
-      WebMap, MapView, LayerList
+      WebMap, MapView, LayerList, Locate
     ) {
 
       const map = new WebMap({
@@ -65,6 +66,14 @@
         }
       });
       view.ui.add(layerList, "top-right");
+            var locateBtn = new Locate({
+        view: view
+      });
+
+      // Add the locate widget to the top left corner of the view
+      view.ui.add(locateBtn, {
+        position: "top-left"
+      });
 
     });
   </script>
